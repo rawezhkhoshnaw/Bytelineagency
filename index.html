@@ -1,4 +1,4 @@
-           1. <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ku" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -19,7 +19,7 @@
             --shadow-hover: 0 15px 35px rgba(255, 94, 0, 0.1); 
             --font-ku: 'Vazirmatn', Tahoma, sans-serif;
             --font-en: 'Poppins', sans-serif;
-            --transition-smooth: all 0.3s ease-in-out;
+            --transition-smooth: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -29,7 +29,7 @@
             font-family: var(--font-ku);
             background-color: var(--bg-main);
             color: var(--text-dark);
-            font-size: 16px; /* قەبارەی نۆرماڵ کرایەوە */
+            font-size: 16px;
             line-height: 1.7;
             overflow-x: hidden;
             width: 100vw;
@@ -44,13 +44,9 @@
             position: fixed; top: 0; width: 100%; z-index: 1000; display: flex; justify-content: space-between; align-items: center;
             padding: 15px 5%; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px); border-bottom: 1px solid var(--border-color); transition: var(--transition-smooth);
         }
-        nav.scrolled { box-shadow: var(--shadow-soft); }
+        nav.scrolled { box-shadow: var(--shadow-soft); padding: 12px 5%; }
         
         .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        
-        /* قەبارەی لۆگۆ ئەگەر وێنە بەکاربێنیت */
-        .company-logo-img { height: 40px; width: auto; object-fit: contain; }
-        
         .logo-text { font-family: var(--font-en); font-size: 22px; font-weight: 900; color: var(--text-dark); }
         .logo-text span { color: var(--primary-color); }
 
@@ -69,7 +65,7 @@
             display: inline-flex; align-items: center; justify-content: center; transition: var(--transition-smooth); border: none; cursor: pointer;
         }
         .btn-primary { background: var(--primary-color); color: #FFF; box-shadow: 0 5px 15px rgba(255, 94, 0, 0.2); }
-        .btn-primary:hover { background: #E65500; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 94, 0, 0.3); }
+        .btn-primary:hover { background: #E65500; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 94, 0, 0.3); }
         .btn-outline { background: transparent; color: var(--text-dark); border: 2px solid var(--border-color); }
         .btn-outline:hover { border-color: var(--primary-color); color: var(--primary-color); }
 
@@ -105,14 +101,14 @@
         .about-grid, .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
         .about-text h3 { font-size: 28px; font-weight: 800; margin-bottom: 15px; }
         .about-text p { color: var(--text-gray); font-size: 15px; margin-bottom: 15px; }
-        .about-image img { width: 100%; border-radius: 20px; }
+        .about-image img { width: 100%; border-radius: 20px; box-shadow: var(--shadow-soft); }
 
         .services-grid, .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .service-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 30px 20px; transition: var(--transition-smooth); text-align: center; }
-        .service-card:hover { transform: translateY(-5px); border-color: var(--primary-color); box-shadow: var(--shadow-hover); }
-        .svc-icon { width: 60px; height: 60px; background: rgba(255, 94, 0, 0.1); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: 28px; color: var(--primary-color); margin-bottom: 20px; }
-        .service-card h4 { font-size: 20px; font-weight: 800; margin-bottom: 10px; }
-        .service-card p { color: var(--text-gray); font-size: 14px; }
+        .service-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 16px; padding: 35px 25px; transition: var(--transition-smooth); text-align: center; }
+        .service-card:hover { transform: translateY(-8px); border-color: var(--primary-color); box-shadow: var(--shadow-hover); }
+        .svc-icon { width: 65px; height: 65px; background: rgba(255, 94, 0, 0.1); border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; font-size: 30px; color: var(--primary-color); margin-bottom: 20px; }
+        .service-card h4 { font-size: 20px; font-weight: 800; margin-bottom: 12px; }
+        .service-card p { color: var(--text-gray); font-size: 15px; line-height: 1.6; }
 
         .port-item { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; border: 1px solid var(--border-color); }
         .port-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
@@ -124,23 +120,29 @@
         .c-icon { width: 50px; height: 50px; background: rgba(255, 94, 0, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; color: var(--primary-color); }
         .c-text h4 { font-size: 16px; direction: ltr; text-align: right; }
 
-        .form-control { width: 100%; padding: 15px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 10px; font-family: inherit; font-size: 14px; margin-bottom: 15px; outline: none; }
-        .form-control:focus { border-color: var(--primary-color); }
+        .form-control { width: 100%; padding: 15px; background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 10px; font-family: inherit; font-size: 14px; margin-bottom: 15px; outline: none; transition: 0.3s;}
+        .form-control:focus { border-color: var(--primary-color); background: #FFF; }
         textarea.form-control { height: 120px; resize: none; }
 
-        footer { text-align: center; padding: 30px 5%; background: #0F172A; color: #FFF; font-size: 14px; }
+        /* Footer Development Update */
+        footer { text-align: center; padding: 40px 5%; background: #0F172A; color: #94A3B8; font-size: 14px; }
+        .footer-logo { font-family: var(--font-en); font-size: 24px; font-weight: 900; color: #FFF; margin-bottom: 10px;}
+        .footer-logo span { color: var(--primary-color); }
+        .dev-credit { margin-top: 15px; font-size: 13px; opacity: 0.8; font-family: var(--font-en); }
+        .dev-credit span { color: var(--primary-color); font-weight: 600; }
         
-        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); z-index: 1000; display: flex; align-items: center; gap: 8px; }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background-color: #25D366; color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 14px; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); z-index: 1000; display: flex; align-items: center; gap: 8px; transition: 0.3s;}
+        .whatsapp-float:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); }
         body.rtl .whatsapp-float { right: auto; left: 20px; flex-direction: row-reverse; }
 
         /* ==========================================================================
-           Animations (Fixed for Vercel & Mobile)
+           Animations (Fixed for Vercel/GitHub Deployment)
            ========================================================================== */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s ease-out; }
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* ==========================================================================
-           Mobile Responsiveness (Fixed Sizes)
+           Mobile Responsiveness
            ========================================================================== */
         @media (max-width: 768px) {
             body { font-size: 15px; }
@@ -163,9 +165,6 @@
 
     <nav id="navbar">
         <a href="#" class="logo">
-            <!-- سەرنج بۆ خاوەنی سایت: ئەگەر دەتەوێت وێنەی لۆگۆ دابنێیت، ئەو کۆدەی خوارەوە کە سەوز کراوە چالاکی بکە و ناوی لۆگۆکەی خۆت بنووسە -->
-            <!-- <img src="logo.png" alt="Byte Line Logo" class="company-logo-img"> -->
-            
             <div class="logo-text">Byte Line <span>Agency</span></div>
         </a>
         <div class="nav-links">
@@ -187,7 +186,7 @@
     </nav>
 
     <section class="hero" id="home">
-        <div class="hero-content reveal active">
+        <div class="hero-content reveal">
             <div class="hero-badge" data-i18n="hero_badge">✨ باشترین ئاژانسی دیجیتاڵی پێشەنگ</div>
             <h1 data-i18n="hero_title">داهاتووی بازرگانییەکەت لەگەڵ <span>Byte Line Agency</span></h1>
             <p data-i18n="hero_desc">پسپۆڕین لە دروستکردنی وێبسایت، براندینگ و مارکێتینگی پێشکەوتوو.</p>
@@ -196,7 +195,6 @@
                 <a href="#contact" class="btn btn-outline" data-i18n="btn_contact_us">قسەکردن لەگەڵ تیم</a>
             </div>
             
-            <!-- وێنەی نوێی مۆدێرن بۆ سەرەتای سایتەکە -->
             <div class="hero-image-container">
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Digital Agency Dashboard">
             </div>
@@ -232,15 +230,18 @@
                 <h4 data-i18n="srv2_title">براندینگ و لۆگۆ</h4>
                 <p data-i18n="srv2_desc">دیزاینی لۆگۆ و ڕێنماییە بینراوەکان کە مۆرکێکی شاهانە دەبەخشێت بە کۆمپانیاکەت.</p>
             </div>
+            
+            <!-- بەشی زیادکراو بە پێی داواکارییەکەت -->
             <div class="service-card reveal">
                 <div class="svc-icon">📱</div>
-                <h4 data-i18n="srv3_title">سۆشیاڵ میدیا</h4>
-                <p data-i18n="srv3_desc">پلانڕێژی و دروستکردنی ناوەڕۆکی ناوازە بۆ پەیجەکانت بۆ زیادکردنی بینەر.</p>
+                <h4 data-i18n="srv3_title">سۆشیاڵ میدیا و بەڕێوەبردن</h4>
+                <p data-i18n="srv3_desc">دیزاینی پۆستی سۆشیاڵ میدیا، ڕێکخستنی پەیج، و بەڕێوەبردن بە شێوەیەکی زانستیانە بۆ ڕاکێشانی کڕیار.</p>
             </div>
+            
             <div class="service-card reveal">
                 <div class="svc-icon">🎯</div>
                 <h4 data-i18n="srv4_title">ڕیکلامی سپۆنسەر</h4>
-                <p data-i18n="srv4_desc">هەڵمەتی ڕیکلامی زیرەک لە مێتا و گۆگڵ بۆ بەدەستهێنانی زۆرترین کڕیار.</p>
+                <p data-i18n="srv4_desc">هەڵمەتی ڕیکلامی زیرەک لە مێتا و گۆگڵ بۆ بەدەستهێنانی زۆرترین کڕیار بە کەمترین تێچوو.</p>
             </div>
         </div>
     </section>
@@ -269,13 +270,16 @@
                 <input type="text" id="senderName" class="form-control" required placeholder="ناوی تەواوت" data-i18n-placeholder="f_name">
                 <input type="tel" id="senderPhone" class="form-control" required placeholder="ژمارەی مۆبایل" data-i18n-placeholder="f_phone">
                 <textarea id="senderMessage" class="form-control" required placeholder="داواکارییەکەت چییە؟" data-i18n-placeholder="f_msg"></textarea>
-                <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="btn_send">ناردن بۆ واتسئاپ</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="btn_send">ناردنی داواکاری بۆ واتسئاپ</button>
             </form>
         </div>
     </section>
 
+    <!-- فوتەری نوێکراوە بە پێی داواکارییەکەت -->
     <footer>
-        <p>&copy; Byte Line Agency. <span data-i18n="footer_rights">هەموو مافێک پارێزراوە.</span></p>
+        <div class="footer-logo">Byte Line <span>Agency</span></div>
+        <p>&copy; 2026. All Rights Reserved.</p>
+        <div class="dev-credit">Dev by <span>rawrzh khoshnaw</span></div>
     </footer>
 
     <a href="https://wa.me/9647511742922" class="whatsapp-float" target="_blank">
@@ -283,28 +287,28 @@
         <span data-i18n="whatsapp">نامە بنێرە</span>
     </a>
 
-    <!-- JavaScript بۆ کارکردنی سەدا سەد -->
+    <!-- JavaScript - ئەنیمەیشنی نوێکراوە کە لە Vercel کار دەکات -->
     <script>
         const dict = {
             ku: {
                 nav_home: "سەرەتا", nav_about: "دەربارە", nav_services: "خزمەتگوزاری", nav_portfolio: "پڕۆژەکان", btn_contact: "پەیوەندی",
                 hero_badge: "✨ باشترین ئاژانسی دیجیتاڵی پێشەنگ", hero_title: "داهاتووی بازرگانییەکەت لەگەڵ <span>Byte Line Agency</span>", hero_desc: "پسپۆڕین لە دروستکردنی وێبسایت، براندینگ و مارکێتینگی پێشکەوتوو.", btn_explore: "بینینی کارەکانمان", btn_contact_us: "قسەکردن لەگەڵ تیم",
-                sub_about: "دەربارەی ئێمە", about_title: "ئێمە ئەندازیاری جیهانی دیجیتاڵین.", about_desc1: "ئاژانسی Byte Line Agency، پێشەنگە لە دابینکردنی چارەسەری دیجیتاڵی. ئێمە تەنها دیزاین ناکەین، بەڵکو ستراتیژییەت دادەڕێژین.",
-                sub_services: "پسپۆڕییەکانمان", services_title: "خزمەتگوزارییەکانمان", srv1_title: "وێب دیزاین", srv1_desc: "دروستکردنی وێبسایت و سیستەمی پێشکەوتوو بە نوێترین تەکنەلۆژیا.", srv2_title: "براندینگ و لۆگۆ", srv2_desc: "دیزاینی لۆگۆ کە مۆرکێکی شاهانە دەبەخشێت بە کۆمپانیاکەت.", srv3_title: "سۆشیاڵ میدیا", srv3_desc: "پلانڕێژی و دروستکردنی ناوەڕۆکی ناوازە بۆ پەیجەکانت.", srv4_title: "ڕیکلامی سپۆنسەر", srv4_desc: "هەڵمەتی ڕیکلامی زیرەک لە مێتا و گۆگڵ.",
-                sub_contact: "پەیوەندی", contact_title: "با پێکەوە دەست پێبکەین", c_loc_val: "Erbil, Kurdistan Region", f_name: "ناوی تەواوت", f_phone: "ژمارەی مۆبایل", f_msg: "داواکارییەکەت چییە؟", btn_send: "ناردن بۆ واتسئاپ", footer_rights: "هەموو مافێک پارێزراوە.", whatsapp: "نامە بنێرە"
+                sub_about: "دەربارەی ئێمە", about_title: "ئێمە ئەندازیاری جیهانی دیجیتاڵین.", about_desc1: "ئاژانسی Byte Line Agency، پێشەنگە لە دابینکردنی چارەسەری دیجیتاڵی گشتگیر. ئێمە تەنها دیزاین ناکەین، بەڵکو ستراتیژییەتێکی سەرکەوتوو بۆ براندەکەت دادەڕێژین.",
+                sub_services: "پسپۆڕییەکانمان", services_title: "خزمەتگوزارییەکانمان", srv1_title: "وێب دیزاین", srv1_desc: "دروستکردنی وێبسایت و سیستەمی پێشکەوتوو بە نوێترین تەکنەلۆژیا.", srv2_title: "براندینگ و لۆگۆ", srv2_desc: "دیزاینی لۆگۆ کە مۆرکێکی شاهانە دەبەخشێت بە کۆمپانیاکەت.", srv3_title: "سۆشیاڵ میدیا و بەڕێوەبردن", srv3_desc: "دیزاینی پۆستی سۆشیاڵ میدیا، ڕێکخستنی پەیج، و بەڕێوەبردن بە شێوەیەکی زانستیانە.", srv4_title: "ڕیکلامی سپۆنسەر", srv4_desc: "هەڵمەتی ڕیکلامی زیرەک لە مێتا و گۆگڵ.",
+                sub_contact: "پەیوەندی", contact_title: "با پێکەوە دەست پێبکەین", c_loc_val: "Erbil, Kurdistan Region", f_name: "ناوی تەواوت", f_phone: "ژمارەی مۆبایل", f_msg: "داواکارییەکەت چییە؟", btn_send: "ناردنی داواکاری بۆ واتسئاپ", footer_rights: "هەموو مافێک پارێزراوە.", whatsapp: "نامە بنێرە"
             },
             en: {
                 nav_home: "Home", nav_about: "About", nav_services: "Services", nav_portfolio: "Work", btn_contact: "Contact",
                 hero_badge: "✨ Top Digital Agency", hero_title: "Your Business Future With <span>Byte Line Agency</span>", hero_desc: "Experts in web development, branding, and advanced marketing.", btn_explore: "Explore Work", btn_contact_us: "Talk to Team",
                 sub_about: "ABOUT US", about_title: "Engineers of the digital world.", about_desc1: "Byte Line Agency is a leader in providing comprehensive digital solutions. We design strategies.",
-                sub_services: "EXPERTISE", services_title: "Our Services", srv1_title: "Web Design", srv1_desc: "Building advanced websites using the latest technology.", srv2_title: "Branding", srv2_desc: "Logo design that gives your company a trusted mark.", srv3_title: "Social Media", srv3_desc: "Creating unique content to boost engagement.", srv4_title: "Sponsored Ads", srv4_desc: "Smart ad campaigns on Meta and Google.",
+                sub_services: "EXPERTISE", services_title: "Our Services", srv1_title: "Web Design", srv1_desc: "Building advanced websites using the latest technology.", srv2_title: "Branding", srv2_desc: "Logo design that gives your company a trusted mark.", srv3_title: "Social Media Management", srv3_desc: "Social media post design, page setup, and scientific management.", srv4_title: "Sponsored Ads", srv4_desc: "Smart ad campaigns on Meta and Google.",
                 sub_contact: "CONTACT", contact_title: "Let's Get Started", c_loc_val: "Erbil, Kurdistan Region", f_name: "Full Name", f_phone: "Phone Number", f_msg: "What do you need?", btn_send: "Send to WhatsApp", footer_rights: "All Rights Reserved.", whatsapp: "Chat"
             },
             ar: {
                 nav_home: "الرئيسية", nav_about: "من نحن", nav_services: "الخدمات", nav_portfolio: "أعمالنا", btn_contact: "اتصل بنا",
                 hero_badge: "✨ وكالة رقمية رائدة", hero_title: "مستقبل أعمالك مع <span>Byte Line Agency</span>", hero_desc: "متخصصون في تطوير المواقع، بناء الهوية، والتسويق.", btn_explore: "أعمالنا", btn_contact_us: "تحدث معنا",
                 sub_about: "من نحن", about_title: "مهندسو العالم الرقمي.", about_desc1: "وكالة Byte Line رائدة في تقديم حلول رقمية شاملة.",
-                sub_services: "خدماتنا", services_title: "ماذا نقدم؟", srv1_title: "تصميم المواقع", srv1_desc: "إنشاء مواقع متقدمة لضمان السرعة والأمان.", srv2_title: "الهوية البصرية", srv2_desc: "تصميم الشعار الذي يمنح شركتك طابعاً فاخراً.", srv3_title: "السوشيال ميديا", srv3_desc: "إنشاء محتوى فريد لصفحاتك.", srv4_title: "الإعلانات الممولة", srv4_desc: "حملات ذكية لكسب العملاء.",
+                sub_services: "خدماتنا", services_title: "ماذا نقدم؟", srv1_title: "تصميم المواقع", srv1_desc: "إنشاء مواقع متقدمة لضمان السرعة والأمان.", srv2_title: "الهوية البصرية", srv2_desc: "تصميم الشعار الذي يمنح شركتك طابعاً فاخراً.", srv3_title: "إدارة السوشيال ميديا", srv3_desc: "تصميم المنشورات وإدارة الحسابات بطريقة علمية لجذب العملاء.", srv4_title: "الإعلانات الممولة", srv4_desc: "حملات ذكية لكسب العملاء.",
                 sub_contact: "اتصل بنا", contact_title: "لنبدأ معاً", c_loc_val: "أربيل، إقليم كوردستان", f_name: "الاسم", f_phone: "رقم الهاتف", f_msg: "طلبك؟", btn_send: "إرسال لواتساب", footer_rights: "جميع الحقوق محفوظة.", whatsapp: "راسلنا"
             }
         };
@@ -323,23 +327,40 @@
         }
         document.getElementById('langSelect').addEventListener('change', updateLanguage);
 
-        /* چاککردنی ئەنیمەیشن بە شێوەیەک کە لەسەر مۆبایل و دۆمەینیش سەدا سەد ئیش بکات */
-        function checkScroll() {
-            const reveals = document.querySelectorAll('.reveal');
-            reveals.forEach(reveal => {
-                const revealTop = reveal.getBoundingClientRect().top;
-                if(revealTop < window.innerHeight - 50) {
-                    reveal.classList.add('active');
-                }
+        /* ئەنیمەیشنی Intersection Observer (باشترین جۆرە بۆ Vercel و Mobile) */
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15 // کاتێک %15 ی بەشەکە دەرکەوت ئەنیمەیشنەکە دەکات
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // observer.unobserve(entry.target); // ئەگەر بتەوێت تەنها یەکجار ئەنیمەیشنەکە بکات ئەمە چالاک بکە
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
             });
             
+            // ڕاستەوخۆ دەرخستنی بەشی سەرەکی
+            setTimeout(() => {
+                document.querySelectorAll('.hero-content.reveal').forEach(el => el.classList.add('active'));
+            }, 100);
+        });
+
+        // ئەنیمەیشنی Navbar
+        window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if(window.scrollY > 30) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
-        }
-        window.addEventListener('scroll', checkScroll);
-        // ئەمە گرنگە بۆ ئەوەی ڕاستەوخۆ کە سایتەکە کرایەوە بەشەکانی سەرەوە دەربکەون
-        setTimeout(checkScroll, 100); 
+        });
 
+        // ناردن بۆ واتسئاپ
         function sendToWhatsApp(e) {
             e.preventDefault();
             const name = document.getElementById('senderName').value;
