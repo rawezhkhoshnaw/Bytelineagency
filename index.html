@@ -12,7 +12,7 @@
     <meta property="og:description" content="ئاژانسی بایت لاین، پسپۆڕ لە دیزاینی وێبسایت، بونیادنانی براند و بەڕێوەبردنی سۆشیاڵ میدیا بە شێوازێکی زانستی. با پێکەوە کارەکەت بگەیەنینە لوتکە.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bytelineagency.com">
-    <meta property="og:image" content="https://fakeimg.pl/1200x630/090D16/FF5E00/?text=Byte+Line+Agency&font=museo">
+    <meta property="og:image" content="https://fakeimg.pl/1200x630/060913/FF5E00/?text=Byte+Line+Agency&font=museo">
     
     <!-- فۆنتەکان -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -107,7 +107,7 @@
         }
 
         /* ==========================================================================
-           3. BACKGROUND ANIMATION (گڵۆپە ڕووناکە دەرەکییەکان)
+           3. BACKGROUND ANIMATION
            ========================================================================== */
         .bg-animation { 
             position: fixed; 
@@ -296,7 +296,7 @@
         }
 
         /* ==========================================================================
-           5. BUTTONS (دوگمەکان)
+           5. BUTTONS
            ========================================================================== */
         .btn {
             padding: 16px 38px; 
@@ -340,7 +340,7 @@
         }
 
         /* ==========================================================================
-           6. HERO SECTION (بەشی سەرەکی)
+           6. HERO SECTION
            ========================================================================== */
         .hero {
             min-height: 100vh; 
@@ -456,7 +456,7 @@
         }
 
         /* ==========================================================================
-           8. ABOUT SECTION (دەربارەی ئێمە)
+           8. ABOUT SECTION
            ========================================================================== */
         .about-grid { 
             display: grid; 
@@ -580,7 +580,7 @@
         }
 
         /* ==========================================================================
-           8b. TECH STACK SHOWCASE (تەکنەلۆژیاکانی کارکردنمان)
+           8b. TECH STACK SHOWCASE
            ========================================================================== */
         .tech-showcase {
             margin-top: 60px;
@@ -619,7 +619,7 @@
         }
 
         /* ==========================================================================
-           9. SERVICES SECTION (خزمەتگوزارییەکان)
+           9. SERVICES SECTION
            ========================================================================== */
         .services-grid { 
             display: grid; 
@@ -703,7 +703,7 @@
         }
 
         /* ==========================================================================
-           10. HOW WE WORK (قۆناغەکانی کارکردنمان)
+           10. HOW WE WORK
            ========================================================================== */
         .process-grid { 
             display: grid; 
@@ -769,7 +769,7 @@
         }
 
         /* ==========================================================================
-           11. PORTFOLIO GALLERY
+           11. PORTFOLIO GALLERY (نوێکاری لە شێوازی کارتەکاندا)
            ========================================================================== */
         .portfolio-filters {
             display: flex;
@@ -800,70 +800,114 @@
 
         .portfolio-grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 30px; 
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
+            gap: 35px; 
         }
         
-        .port-item {
-            position: relative; 
-            border-radius: 28px; 
-            overflow: hidden; 
-            aspect-ratio: 4/3; 
-            border: 1px solid var(--border-color); 
+        .port-item-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 28px;
+            overflow: hidden;
             box-shadow: var(--shadow-md);
-            background: #0d1423;
-            display: block;
-        }
-
-        .port-item.hidden {
-            display: none;
-        }
-        
-        .port-item img { 
-            width: 100%; 
-            height: 100%; 
-            object-fit: cover; 
-            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        
-        .port-item:hover img { 
-            transform: scale(1.1); 
-        }
-        
-        .port-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(6, 9, 19, 0) 30%, rgba(6, 9, 19, 0.95) 100%);
+            transition: var(--transition-smooth);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding: 35px;
-            opacity: 0;
-            transition: opacity 0.5s ease;
         }
 
-        .port-item:hover .port-overlay {
-            opacity: 1;
+        .port-item-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 94, 0, 0.3);
+            box-shadow: var(--shadow-lg);
         }
-        
-        .port-overlay h4 { 
-            font-size: clamp(20px, 2vw, 24px); 
-            font-weight: 800; 
-            color: #FFF; 
-            margin-bottom: 8px; 
+
+        .port-img-container {
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
+            background: #090d16;
+            position: relative;
         }
-        
-        .port-overlay p { 
-            color: var(--primary-color); 
-            font-weight: 700; 
+
+        .port-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .port-item-card:hover .port-img-container img {
+            transform: scale(1.05);
+        }
+
+        .port-info-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .port-info-content h4 {
+            font-size: clamp(18px, 2vw, 22px);
+            font-weight: 800;
+            color: var(--text-bright);
+            margin-bottom: 8px;
+        }
+
+        .port-info-content .port-tag {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .port-info-content p {
             font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .port-btn-container {
+            margin-top: auto;
+        }
+
+        .btn-port-view {
+            width: 100%;
+            padding: 12px 24px;
+            font-size: 14px;
+            font-weight: 800;
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition-fast);
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-bright);
+            border: 1.5px solid var(--border-color);
+        }
+
+        .btn-port-view:hover {
+            border-color: var(--primary-color);
+            background: var(--primary-glow);
+            color: #FFF;
+        }
+
+        .port-item-card.hidden {
+            display: none !important;
         }
 
         /* ==========================================================================
-           12. INTERACTIVE PROJECT PLANNER (بونیادنەری زیرەک)
+           12. INTERACTIVE PROJECT PLANNER
            ========================================================================== */
         .planner-card {
             background: var(--bg-card);
@@ -1147,13 +1191,13 @@
            ========================================================================== */
         .reveal { 
             opacity: 0; 
-            transform: translateY(45px); 
-            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1); 
+            transform: translateY(35px); 
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
         }
         
         .reveal.active { 
-            opacity: 1; 
-            transform: translateY(0); 
+            opacity: 1 !important; 
+            transform: translateY(0) !important; 
         }
 
         /* ==========================================================================
@@ -1406,29 +1450,57 @@
             <button class="filter-btn active" data-filter="all" data-i18n="filter_all">هەمووی</button>
             <button class="filter-btn" data-filter="web" data-i18n="filter_web">وێبسایت</button>
             <button class="filter-btn" data-filter="branding" data-i18n="filter_branding">براندینگ</button>
-            <button class="filter-btn" data-filter="marketing" data-i18n="filter_marketing">بەبازاڕکردن</button>
         </div>
 
         <div class="portfolio-grid reveal">
-            <div class="port-item" data-category="web">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop" alt="Web Design">
-                <div class="port-overlay">
-                    <h4 data-i18n="p1_title">وێبسایتی بازرگانیی نێودەوڵەتی</h4>
-                    <p data-i18n="p1_cat">گەشەپێدان و کۆدنووسی</p>
+            <!-- پڕۆژەی یەکەم: Dli Kosan -->
+            <div class="port-item-card" data-category="web">
+                <div class="port-img-container">
+                    <!-- کێشانی سکرین شۆتی لاپەڕەی سەرەکی ڕاستەوخۆ -->
+                    <img src="https://image.thum.io/get/width/1024/crop/800/https://dlikosan.vercel.app/" alt="Dli Kosan Screenshot">
+                </div>
+                <div class="port-info-content">
+                    <span class="port-tag" data-i18n="p1_tag">وێبسایت و سیستم</span>
+                    <h4 data-i18n="p1_title">Dli Kosan</h4>
+                    <p data-i18n="p1_desc">سەکۆیەکی پێشکەوتووی بازرگانیی ئەلیکترۆنییە بۆ فرۆشتنی کاڵا جۆراوجۆرەکان، کە بە خێراییەکی ناوازە و دیزاینێکی دۆستانە بۆ بەکارهێنەر بونیاد نراوە تاوەکو باشترین ئەزموونی کڕین دابین بکات.</p>
+                    <div class="port-btn-container">
+                        <a href="https://dlikosan.vercel.app/" target="_blank" class="btn-port-view">
+                            <span data-i18n="btn_view_site">بینینی ماڵپەڕ</span> ↗
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="port-item" data-category="branding">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop" alt="Branding">
-                <div class="port-overlay">
-                    <h4 data-i18n="p2_title">براندینگ و گرافیک بۆ پڕۆژەی نیشتەجێبوون</h4>
-                    <p data-i18n="p2_cat">داڕشتنی براند</p>
+            
+            <!-- پڕۆژەی دووەم: Kurd Menu -->
+            <div class="port-item-card" data-category="web">
+                <div class="port-img-container">
+                    <!-- کێشانی سکرین شۆتی لاپەڕەی سەرەکی ڕاستەوخۆ -->
+                    <img src="https://image.thum.io/get/width/1024/crop/800/https://kurd-menu.vercel.app/" alt="Kurd Menu Screenshot">
+                </div>
+                <div class="port-info-content">
+                    <span class="port-tag" data-i18n="p2_tag">سیستەمی دیجیتاڵی</span>
+                    <h4 data-i18n="p2_title">Kurd Menu</h4>
+                    <p data-i18n="p2_desc">سیستەمێکی مۆدێرن و کارلێکەری مێنیوی دیجیتاڵییە تایبەت بە چێشتخانە و کافتەریاکان، کڕیاران دەتوانن لە ڕێگەی کۆدی QR بە ئاسانی لیستەکە ببینن و کاتی چاوەڕوانی کەم بکەنەوە.</p>
+                    <div class="port-btn-container">
+                        <a href="https://kurd-menu.vercel.app/" target="_blank" class="btn-port-view">
+                            <span data-i18n="btn_view_site">بینینی ماڵپەڕ</span> ↗
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="port-item" data-category="marketing">
-                <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?q=80&w=800&auto=format&fit=crop" alt="Social Media">
-                <div class="port-overlay">
-                    <h4 data-i18n="p3_title">بەبازاڕکردن و کەمپەینی فراوان</h4>
-                    <p data-i18n="p3_cat">پەڕەی سۆشیاڵ میدیا و سپۆنسەر</p>
+
+            <!-- پڕۆژەی سێیەم: براندینگ -->
+            <div class="port-item-card" data-category="branding">
+                <div class="port-img-container">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=800&auto=format&fit=crop" alt="Branding Concept">
+                </div>
+                <div class="port-info-content">
+                    <span class="port-tag" data-i18n="p3_tag">ناسنامەی براند</span>
+                    <h4 data-i18n="p3_title">براندینگی کۆمپانیا</h4>
+                    <p data-i18n="p3_desc">دیزاینکردنی ناسنامەی تەواوی بینراو بە شێوازێکی مۆدێرن کە تەواوی لۆگۆ، ڕەنگەکان و پێداویستییەکانی ناو کۆمپانیا دەگرێتەوە بۆ دروستکردنی باوەڕبەخۆبوون.</p>
+                    <div class="port-btn-container">
+                        <span class="btn-port-view" style="cursor: default; opacity: 0.6;" data-i18n="btn_archived">کارێکی تەواوکراو</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1552,7 +1624,6 @@
          JAVASCRIPT LOGIC
          ========================================================================== -->
     <script>
-        // دابینکردنی فۆرماتی سەرەکی زمانەکان
         const dict = {
             ku: {
                 nav_home: "سەرەتا", nav_about: "دەربارە", nav_services: "خزمەتگوزاری", nav_process: "قۆناغەکانی کار", nav_portfolio: "پڕۆژەکان",
@@ -1563,8 +1634,12 @@
                 stat_1: "پڕۆژەی جێبەجێکراو", stat_2: "ڕەزامەندی کڕیاران", stat_3: "پاڵپشتی و بەدواداچوون", badge_title: "کوالیتی نێودەوڵەتی", badge_desc: "کارکردن بە بەرزترین ستانداردەکان",
                 sub_services: "پسپۆڕییە تایبەتەکانمان", services_title: "خزمەتگوزارییەکانمان", srv1_title: "دیزاین و پەرەپێدانی وێبسایت", srv1_desc: "بونیادنانی پێگە و وێبسایتی مۆدێرن بە بەکارهێنانی نوێترین سیستمەکانی کۆدنووسی جیهانی کە خێرایی، پارێزراوی و گونجاندن لەگەڵ مۆبایلدا مسۆگەر دەکات.", srv2_title: "بونیادنانی ناسنامەی براند", srv2_desc: "دیزاینکردنی لۆگۆ و تەواوی گرافیکەکانی براندەکەت بە شێوازێکی هونەری نوێ، بۆ ئەوەی ناوی کۆمپانیاکەت بە بەهێزی لە بازاڕدا بناسرێت.", srv3_title: "بەڕێوەبردنی زانستیی سۆشیاڵ میدیا", srv3_desc: "بەڕێوەبردنی پەیجەکان و گەشەپێدانی کەمپەینی بەردەوام بە هاوکاری باشترین داڕێژەرانی ناوەڕۆک، بۆ دروستکردنی گەورەترین کاریگەری.", srv4_title: "ڕیکلامی سپۆنسەر و بەبازاڕکردن", srv4_desc: "ڕێکخستنی کەمپەینی ڕیکلامی ورد لەسەر تۆڕە جیاوازەکان بە پشت بەستن بە داتاکانی بەکارهێنەر بۆ بەدەستهێنانی کڕیار بە گونجاوترین تێچوو.",
                 sub_process: "قۆناغەکانی کارکردنمان", process_title: "چۆن کارەکانت بە سەرکەوتوویی جێبەجێ دەکەین؟", step1_title: "داڕشتنی پلان و ستراتیژ", step1_desc: "گوێ لە بیرۆکەکانت دەگرین و بە لێکۆڵینەوەیەکی قووڵ، گونجاوترین پلان بۆ پڕۆژەکەت ئامادە دەکەین.", step2_title: "دیزاینکردن و کۆدنووسی", step2_desc: "دەست دەکەین بە دیزاینی سەرەکی و پڕۆگرامکردنی پڕۆژەکەت بە نوێترین ستانداردی تەکنەلۆژیی جیهان.", step3_title: "تاقیکردنەوە و ڕادەستکردن", step3_desc: "پاش دڵنیابوونەوە لە نەبوونی هیچ کەموکوڕییەک، پڕۆژەکەت لە وادەی دیاریکراودا ڕادەست دەکەین لەگەڵ دابینکردنی پاڵپشتی.",
-                sub_portfolio: "کارە پێشووەکانمان", port_title: "نوێترین کارەکانمان لێرە ببینە", p1_title: "وێبسایتی بازرگانیی نێودەوڵەتی", p1_cat: "گەشەپێدان و کۆدنووسی", p2_title: "براندینگ و گرافیک بۆ پڕۆژەی نیشتەجێبوون", p2_cat: "داڕشتنی براند", p3_title: "بەبازاڕکردن و کەمپەینی فراوان", p3_cat: "پەڕەی سۆشیاڵ میدیا و سپۆنسەر",
-                filter_all: "هەمووی", filter_web: "وێبسایت", filter_branding: "براندینگ", filter_marketing: "بەبازاڕکردن",
+                sub_portfolio: "کارە پێشووەکانمان", port_title: "نوێترین کارەکانمان لێرە ببینە", 
+                p1_tag: "وێبسایت و سیستم", p1_title: "Dli Kosan", p1_desc: "سەکۆیەکی پێشکەوتووی بازرگانیی ئەلیکترۆنییە بۆ فرۆشتنی کاڵا جۆراوجۆرەکان، کە بە خێراییەکی ناوازە و دیزاینێکی دۆستانە بۆ بەکارهێنەر بونیاد نراوە تاوەکو باشترین ئەزموونی کڕین دابین بکات.", 
+                p2_tag: "سیستەمی دیجیتاڵی", p2_title: "Kurd Menu", p2_desc: "سیستەمێکی مۆدێرن و کارلێکەری مێنیوی دیجیتاڵییە تایبەت بە چێشتخانە و کافتەریاکان، کڕیاران دەتوانن لە ڕێگەی کۆدی QR بە ئاسانی لیستەکە ببینن و کاتی چاوەڕوانی کەم بکەنەوە.", 
+                p3_tag: "ناسنامەی براند", p3_title: "براندینگی کۆمپانیا", p3_desc: "دیزاینکردنی ناسنامەی تەواوی بینراو بە شێوازێکی مۆدێرن کە تەواوی لۆگۆ، ڕەنگەکان و پێداویستییەکانی ناو کۆمپانیا دەگرێتەوە بۆ دروستکردنی باوەڕبەخۆبوون.",
+                btn_view_site: "بینینی ماڵپەڕ", btn_archived: "کارێکی تەواوکراو",
+                filter_all: "هەمووی", filter_web: "وێبسایت", filter_branding: "براندینگ",
                 sub_planner: "بونیادنەری زیرەکی پڕۆژە", planner_title: "تایبەتمەندی پڕۆژەکەت بە خواستی خۆت ڕێکبخە", planner_choose_service: "١. جۆری ئەو خزمەتگوزارییەی دەتەوێت هەڵبژێرە:", planner_choose_budget: "٢. بودجەی خەمڵێنراو بۆ پڕۆژەکەت دیاری بکە:", summary_title: "پوختەی هەڵبژاردن", summary_desc: "پلاندانەرە زیرەکەکەمان داواکارییەکانت بە فۆرماتێکی پارێزراو ڕێکدەخات تاوەکو ڕاستەوخۆ بنێردرێت بۆ ڕاوێژکارانی ئێمە لە ڕێگەی واتسئاپەوە.", btn_planner_send: "ناردنی پلانی کار بۆ واتسئاپ",
                 sub_faq: "پرسیارە گشتییەکان", faq_title: "ئەو پرسیارانەی زۆرجار دووبارە دەبنەوە", faq1_q: "بۆچی دەبێت ئاژانسی بایت لاین هەڵبژێرم؟", faq1_a: "چونکە ئێمە تەنها خزمەتگوزاری پێشکەش ناکەین، بەڵکو باشترین و نوێترین ڕێگەچارە و پلانی گەشەپێدانی ڕاستەقینە بۆ کارەکەت لە جیهانی دیجیتاڵیدا بونیاد دەنێین.", faq2_q: "چەند کات پێویستە بۆ جێبەجێکردنی وێبسایتێک؟", faq2_a: "بێگومان بەپێی تایبەتمەندی و گەورەیی پڕۆژەکەت دەگۆڕێت، بەڵام بە شێوازێکی گشتی پڕۆژەی ناوەند و ناساندن لە نێوان ١ بۆ ٢ هەفتە کاتی پێویستە.",
                 sub_contact: "پەیوەندیمان پێوە بکە", contact_title: "پێکەوە دەست بکەین بە کارەکانت", c_heading: "ئامادەیت بۆ بازدانێکی گەورە؟", c_desc: "زانیارییەکانت بنووسە و لە ماوەیەکی کەمدا لە ڕێگەی تیمی پەیوەندییەکانمانەوە لە واتسئاپ وەڵامی سەرجەم پرسیارەکانت دەدرێتەوە.", c_loc_val: "Erbil, Kurdistan Region", 
@@ -1579,8 +1654,12 @@
                 stat_1: "Completed Projects", stat_2: "Client Satisfaction", stat_3: "Ongoing Support", badge_title: "International Quality", badge_desc: "Operating on the highest global standards",
                 sub_services: "OUR SPECIALTIES", services_title: "Our Digital Services", srv1_title: "Website Design & Development", srv1_desc: "Building modern websites using global code frameworks that guarantee lightning-fast speed, maximum security, and full responsiveness.", srv2_title: "Creative Branding Identity", srv2_desc: "Designing unique, artistic logos and brand guidelines that immediately build a reputable, solid presence in your local market.", srv3_title: "Scientific Social Media Management", srv3_desc: "Managing your platforms with tailored content curation and high-end design assets to build real audience engagement.", srv4_title: "Sponsored Ads & Performance", srv4_desc: "Deploying data-driven advertising campaigns across top platforms to acquire real customers with optimized conversion costs.",
                 sub_process: "THE STEPS WE TAKE", process_title: "How We Deliver Success", step1_title: "Strategic Blueprinting", step1_desc: "We analyze your project requirements extensively to craft a custom workflow blueprint for your business.", step2_title: "Development & Coding", step2_desc: "Our expert developers start creating and programming your project using modern technology standards.", step3_title: "Testing & Launch", step3_desc: "After multi-phase quality testing, we launch your project on time with premium continuous support.",
-                sub_portfolio: "OUR RECENT WORK", port_title: "Browse Our Latest Portfolio Items", p1_title: "International Trading Platform", p1_cat: "Development & Coding", p2_title: "Real Estate Identity Design", p2_cat: "Brand Strategy", p3_title: "Data-Driven Ad Campaign", p3_cat: "Social Media Ads",
-                filter_all: "All", filter_web: "Web", filter_branding: "Branding", filter_marketing: "Marketing",
+                sub_portfolio: "OUR RECENT WORK", port_title: "Browse Our Latest Portfolio Items", 
+                p1_tag: "Website & Systems", p1_title: "Dli Kosan", p1_desc: "An advanced, high-performance E-commerce platform built for seamless online shopping, featuring intuitive design and seamless user flows.", 
+                p2_tag: "Digital Ecosystems", p2_title: "Kurd Menu", p2_desc: "An interactive QR Code restaurant menu system allowing diners to scan, view, and select customized orders with maximum speed and zero wait times.", 
+                p3_tag: "Brand Guidelines", p3_title: "Corporate Branding", p3_desc: "Comprehensive brand identity system including logo design, color guidelines, and visual resources for solid market positioning.",
+                btn_view_site: "Visit Live Site", btn_archived: "Case Study Complete",
+                filter_all: "All", filter_web: "Web", filter_branding: "Branding",
                 sub_planner: "SMART PROJECT PLANNER", planner_title: "Customize Your Project Easily", planner_choose_service: "1. Select Service Type:", planner_choose_budget: "2. Estimate Your Budget:", summary_title: "Plan Summary", summary_desc: "Our smart generator formats your customized choices into a direct blueprint to send to our team over WhatsApp for instant quotation.", btn_planner_send: "Send Plan to WhatsApp",
                 sub_faq: "FAQ", faq_title: "Frequently Asked Questions", faq1_q: "Why Choose Byte Line Agency?", faq1_a: "Because we do not just deliver standard work; we build highly scalable digital ecosystems and marketing strategies to grow your business systematically.", faq2_q: "How long does a website take to build?", faq2_a: "It depends on complexity, but standard professional websites are usually developed and delivered within 1 to 2 weeks.",
                 sub_contact: "GET IN TOUCH", contact_title: "Let's Scale Your Business", c_heading: "Ready for a big leap?", c_desc: "Fill out the form and submit your information; our support team will reach out on WhatsApp shortly.", c_loc_val: "Erbil, Kurdistan Region", 
@@ -1595,12 +1674,16 @@
                 stat_1: "مشروع منجز", stat_2: "نسبة رضا العملاء", stat_3: "دعم ومتابعة مستمرة", badge_title: "جودة عالمية", badge_desc: "التنفيذ بأعلى المعايير المهنية",
                 sub_services: "خبراتنا المتقدمة", services_title: "الخدمات الرقمية", srv1_title: "تصميم وتطوير المواقع", srv1_desc: "بناء مواقع ويب سريعة وآمنة تماماً باستخدام أحدث اللغات البرمجية المتوافقة مع محركات البحث والهواتف الذكية.", srv2_title: "الهوية البصرية والعلامة التجارية", srv2_desc: "تصميم الهوية البصرية المتكاملة والشعارات المبتكرة لشركتك لبناء ثقة راسخة وفورية مع عملائك.", srv3_title: "الإدارة العلمية لقنوات التواصل", srv3_desc: "إدارة صفحاتك وصناعة المحتوى التفاعلي بواسطة مصممين وكتاب محتوى متميزين لرفع مستوى التفاعل.", srv4_title: "الحملات الإعلانية المدفوعة", srv4_desc: "إعداد وإدارة الإعلانات الممولة بدقة بالاعتماد على البيانات الحقيقية للوصول لأفضل شريحة من المشترين.",
                 sub_process: "خطوات العمل المتبعة", process_title: "كيف نضمن نجاح مشروعك؟", step1_title: "التخطيط وبناء الاستراتيجية", step1_desc: "نستمع لأفكارك بعناية تامة ونرسم خطة عمل متكاملة تناسب طموحاتك وميزانيتك.", step2_title: "التصميم والبرمجة والتطوير", step2_desc: "يبدأ مطورونا ببرمجة مشروعك وتصميم الواجهات الرائعة بالاعتماد على أحدث التقنيات البرمجية.", step3_title: "الاختبار النهائي والتسليم", step3_desc: "بعد إجراء اختبارات متعددة للجودة والأداء، نقوم بتسليم المشروع في الوقت المحدد مع توفير دعم كامل.",
-                sub_portfolio: "أعمالنا المتميزة", port_title: "تصفح أحدث مشاريعنا المنجزة", p1_title: "موقع لشركة تجارية عالمية", p1_cat: "تطوير وبرمجة مخصصة", p2_title: "تصميم هوية لمشروع عقاري", p2_cat: "بناء العلامة التجارية", p3_title: "حملة إعلانية ممولة وذكية", p3_cat: "إعلانات السوشيال ميديا",
-                filter_all: "الكل", filter_web: "المواقع", filter_branding: "الهوية البصرية", filter_marketing: "التسويق",
+                sub_portfolio: "أعمالنا المتميزة", port_title: "تصفح أحدث مشاريعنا المنجزة", 
+                p1_tag: "موقع وأنظمة متكاملة", p1_title: "Dli Kosan", p1_desc: "منصة تجارة إلكترونية متطورة مخصصة لعرض وبيع المنتجات بسرعة مذهلة، تم بناؤها بواجهات مستخدم مرنة لتجربة تسوق مريحة.", 
+                p2_tag: "أنظمة رقمية ذكية", p2_title: "Kurd Menu", p2_desc: "نظام منيو تفاعلي وقارئ ذكي للمطاعم والمقاهي عبر الـ QR كود، يتيح للعملاء تصفح الخيارات بسهولة واختصار وقت الانتظار.", 
+                p3_tag: "تصميم الهويات", p3_title: "الهوية التجارية", p3_desc: "تصميم وبناء الهوية البصرية المتكاملة للشركات بما يضمن التميز ووضع علامة تجارية قوية في السوق المحلي.",
+                btn_view_site: "زيارة الموقع المباشر", btn_archived: "دراسة حالة مكتملة",
+                filter_all: "الكل", filter_web: "المواقع", filter_branding: "الهوية البصرية",
                 sub_planner: "مخطط المشاريع الذكي", planner_title: "صمم خطة مشروعك بنفسك هنا", planner_choose_service: "١. حدد نوع الخدمة المطلوبة:", planner_choose_budget: "٢. حدد الميزانية التقريبية للمشروع:", summary_title: "ملخص الخيارات", summary_desc: "مخططنا الذكي يجمع خياراتك في مسودة منسقة لتتمكن من إرسالها فوراً عبر واتساب إلى مستشارينا لمناقشتها.", btn_planner_send: "إرسال الخطة إلى واتساب",
                 sub_faq: "الأسئلة الشائعة", faq_title: "الأسئلة الأكثر تكراراً", faq1_q: "لماذا أختار Byte Line Agency؟", faq1_a: "لأننا نتبنى أحدث الحلول الرقمية، ونرسم لك خطة استراتيجية تضمن لك التطور والنمو الحقيقي والمستدام لأعمالك.", faq2_q: "كم من الوقت يستغرق تسليم موقع إلكتروني؟", faq2_a: "المدة تعتمد على الميزات المطلوبة، ولكن المواقع التعريفية للشركات تستغرق عادة ما بين أسبوع إلى أسبوعين كحد أقصى.",
                 sub_contact: "اتصل بنا الآن", contact_title: "لنبدأ معاً في تطوير أعمالك", c_heading: "هل أنت مستعد للتطوير الفعلي؟", c_desc: "املاً هذا النموذج وسيقوم فريق الدعم الفني لدينا بالتواصل معك عبر واتساب مباشرة في أقرب وقت.", c_loc_val: "Erbil, Kurdistan Region", 
-                f_name: "الاسم الكريم", f_phone: "رقم الهاتف", f_msg: "نبذة مختصرة عن المشروع...", btn_send: "إرسال الطلب إلى واتساب", footer_rights: "جميع الحقوق محفوظة.", whatsapp: "تواصل معنا عبر واتساب"
+                f_name: "الاسم الكريم", f_phone: "رقم الهاتف", f_msg: "اكتب نبذة قصيرة عن مشروعك...", btn_send: "إرسال الطلب إلى واتساب", footer_rights: "جميع الحقوق محفوظة.", whatsapp: "تواصل معنا عبر واتساب"
             }
         };
 
@@ -1613,7 +1696,6 @@
             navLinks.classList.toggle('open');
         });
 
-        // داخستنی مینیۆی مۆبایل دوای کلیک کردن لە بەشێک
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 menuBtn.classList.remove('open');
@@ -1624,7 +1706,7 @@
             });
         });
 
-        // گۆڕینی زمان
+        // گۆڕینی زمانەکان
         function updateLanguage() {
             const lang = document.getElementById('langSelect').value;
             if(lang === 'en') { 
@@ -1647,29 +1729,54 @@
         }
         document.getElementById('langSelect').addEventListener('change', updateLanguage);
 
-        // کاریگەرییەکانی کات سکڕۆڵ کردن و نیشاندانی هێڵی سەرەوە
-        function runAnimations() {
-            // Scroll Progress Bar
+        // چاککردنی کێشەی ئەنیمەیشنەکان (IntersectionObserver + Fallback System)
+        function initScrollAnimations() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            if ('IntersectionObserver' in window) {
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target); 
+                        }
+                    });
+                }, {
+                    root: null,
+                    threshold: 0.1, 
+                    rootMargin: "0px 0px -50px 0px"
+                });
+
+                reveals.forEach(el => revealObserver.observe(el));
+            } else {
+                reveals.forEach(el => el.classList.add('active'));
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initScrollAnimations();
+            
+            // ئەگەر دوای ١.٢ چرکە ئەنیمەیشن کار نەکات بە زۆر چالاکی دەکەین
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => {
+                    if (!el.classList.contains('active')) {
+                        el.classList.add('active');
+                    }
+                });
+            }, 1200);
+        });
+
+        // ڕێکخستنی Progress bar
+        window.addEventListener('scroll', () => {
             const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById("scrollProgress").style.width = scrolled + "%";
 
-            // Header opacity
             const nav = document.getElementById('navbar');
             if(window.scrollY > 30) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
-
-            // Scroll Reveal Animation
-            const reveals = document.querySelectorAll('.reveal');
-            for (let i = 0; i < reveals.length; i++) {
-                const windowHeight = window.innerHeight;
-                const elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 50) {
-                    reveals[i].classList.add("active");
-                }
-            }
-
-            // ژمارە گەشەسەندووەکان (Stats)
+            
+            // چالاککردنی ئۆتۆماتیکی ئامارەکان
             const statsSection = document.querySelector('.stats-container');
             if(statsSection && statsSection.getBoundingClientRect().top < window.innerHeight - 50 && !window.statsAnimated) {
                 window.statsAnimated = true;
@@ -1689,17 +1796,9 @@
                     updateCounter();
                 });
             }
-        }
-        
-        window.addEventListener('scroll', runAnimations);
-        window.addEventListener('DOMContentLoaded', () => {
-            setTimeout(runAnimations, 100);
-            setTimeout(() => {
-                document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
-            }, 2000);
         });
 
-        // نوسینی خۆکار لە شاشەی هیرۆدا
+        // نووسینی خۆکار لە شاشەی هیرۆدا
         let typeIndex = 0; let charIndex = 0; let isDeleting = false;
         function typeEffect() {
             const lang = document.getElementById('langSelect').value;
@@ -1716,7 +1815,7 @@
         }
         setTimeout(typeEffect, 1000);
 
-        // پرسیار و وەڵامەکان (FAQ)
+        // FAQ Collapse
         document.querySelectorAll('.faq-question').forEach(item => {
             item.addEventListener('click', () => {
                 const parent = item.parentElement; 
@@ -1735,7 +1834,7 @@
 
         // فلتەرکردنی بەشی پڕۆژەکان
         const filterButtons = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.port-item');
+        const portfolioItems = document.querySelectorAll('.port-item-card');
 
         filterButtons.forEach(btn => {
             btn.addEventListener('click', () => {
@@ -1754,7 +1853,7 @@
             });
         });
 
-        // پلاندانەری پڕۆژە (Project Planner Options Selection)
+        // پلاندانەری پڕۆژە
         const serviceChips = document.querySelectorAll('#plannerServices .option-chip');
         const budgetChips = document.querySelectorAll('#plannerBudget .option-chip');
 
@@ -1772,7 +1871,6 @@
             });
         });
 
-        // ناردنی پلانی دیاریکراو بۆ واتسئاپ
         function sendPlannerToWhatsApp() {
             const selectedService = document.querySelector('#plannerServices .option-chip.selected').getAttribute('data-value');
             const selectedBudget = document.querySelector('#plannerBudget .option-chip.selected').getAttribute('data-value');
@@ -1781,13 +1879,13 @@
             window.open(`https://wa.me/9647511742922?text=${encodeURIComponent(message)}`, '_blank');
         }
 
-        // ناردنی فۆڕمی پەیوەندی
+        // فۆڕمی پەیوەندی بەستن بە واتسئاپ
         function sendToWhatsApp(e) {
             e.preventDefault();
             const name = document.getElementById('senderName').value;
             const phone = document.getElementById('senderPhone').value;
             const message = document.getElementById('senderMessage').value;
-            const waMessage = `سڵاو ئاژانسی بایت لاین، پرسیارێکم هەیە یاخود دەمەوێت دەست بکەم بە پڕۆژەیەک:\n\n👤 ناو: ${name}\n📞 تەلەفۆن: ${phone}\n📝 داواکاری: ${message}`;
+            const waMessage = `سڵاو ئاژانسی بایت لاین، من دەمەوێت لەگەڵتان کار بکەم:\n\n👤 ناو: ${name}\n📞 تەلەفۆن: ${phone}\n📝 داواکاری: ${message}`;
             window.open(`https://wa.me/9647511742922?text=${encodeURIComponent(waMessage)}`, '_blank');
         }
     </script>
